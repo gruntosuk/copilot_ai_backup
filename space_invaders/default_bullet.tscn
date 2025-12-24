@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://7scmxphq013f"]
+
+[ext_resource type="Script" uid="uid://cu5shioxo2rf6" path="res://default_bullet.gd" id="1_3af4v"]
+
+[node name="DefaultBullet" type="Node2D"]
+script = ExtResource("1_3af4v")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 8.0
+offset_bottom = 24.0
+color = Color(1, 0, 0, 1)
+
+[node name="BulletLifeTime" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="BulletLifeTime" to="." method="_on_bullet_life_time_timeout"]
