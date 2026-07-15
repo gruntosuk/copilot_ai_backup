@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cpt25rxnnsc1n"]
+
+[ext_resource type="Script" uid="uid://dvy8rjis0ljbi" path="res://pong/pong_paddle.gd" id="1_7o0am"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7o0am"]
+size = Vector2(34, 194)
+
+[node name="PongPaddle" type="CharacterBody2D" unique_id=1804792597]
+script = ExtResource("1_7o0am")
+
+[node name="Paddle" type="ColorRect" parent="." unique_id=38646379]
+offset_right = 32.0
+offset_bottom = 192.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1238867165]
+position = Vector2(16, 96)
+shape = SubResource("RectangleShape2D_7o0am")
