@@ -22,10 +22,10 @@ func _ready() -> void:
 	GlobalEvents.ball_ready.connect(_game_ready)
 
 	# Spawn paddle 1
-	paddle_p1 = paddle_scene.instantiate()
-	add_child(paddle_p1)
 	spawn_player_2 = true
 	print_debug("spawned paddle 1")
+	paddle_p1 = paddle_scene.instantiate()
+	add_child(paddle_p1)
 
 
 func _spawn_paddle_2() -> void:
