@@ -26,4 +26,7 @@ fi
 
 commit_msg="auto-backup: $(date '+%Y-%m-%d %H:%M:%S')"
 git commit -m "$commit_msg"
-git push "$REMOTE_NAME" HEAD:"$TARGET_BRANCH"
+
+# Keep backup branch aligned even when histories diverge.
+git fetch "$REMOTE_NAME" "$TARGET_BRANCH" >/dev/null 2>&1 || true
+git push --force-with-lease "$REMOTE_NAME" HEAD:"$TARGET_BRANCH"
