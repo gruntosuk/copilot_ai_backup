@@ -30,6 +30,7 @@ func _ready() -> void:
 
 func _spawn_paddle_2() -> void:
 	print("spawning paddle 2")
+	print_debug(spawn_player_2)
 	if spawn_player_2 == true:
 		paddle_p2 = paddle_scene.instantiate()
 		add_child(paddle_p2)
