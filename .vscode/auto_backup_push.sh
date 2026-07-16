@@ -4,8 +4,14 @@ set -euo pipefail
 REPO_DIR="/Users/grantegglestone/Repos/arcadeclassics"
 REMOTE_NAME="copilot_ai_backup"
 TARGET_BRANCH="main"
+PROMPTS_DIR="/Users/grantegglestone/Library/Application Support/Code/User/prompts"
+MIRROR_DIR="$REPO_DIR/.copilot-backup/prompts"
 
 cd "$REPO_DIR"
+
+# Mirror global prompt files into the repository backup area.
+mkdir -p "$MIRROR_DIR"
+rsync -a --delete "$PROMPTS_DIR/" "$MIRROR_DIR/"
 
 # Skip while merge conflicts exist.
 if [[ -n "$(git diff --name-only --diff-filter=U)" ]]; then
