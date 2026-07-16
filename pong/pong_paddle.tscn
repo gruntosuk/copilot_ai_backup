@@ -5,12 +5,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7o0am"]
 size = Vector2(34, 194)
 
-[node name="PongPaddle" type="CharacterBody2D" unique_id=1804792597]
+[node name="PongPaddle" type="StaticBody2D" unique_id=1642177715 groups=["pong_paddle"]]
 script = ExtResource("1_7o0am")
 
 [node name="Paddle" type="ColorRect" parent="." unique_id=38646379]
 offset_right = 32.0
 offset_bottom = 192.0
+color = Color(1, 0, 0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1238867165]
 position = Vector2(16, 96)
