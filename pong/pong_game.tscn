@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://dlu312e1is38i"]
 
 [ext_resource type="Script" uid="uid://ssbxojh53yse" path="res://pong/pong_game.gd" id="1_5t5j1"]
-[ext_resource type="PackedScene" uid="uid://cpt25rxnnsc1n" path="res://pong/pong_paddle.tscn" id="1_6tt3n"]
-[ext_resource type="PackedScene" uid="uid://cv7ejcge8hxxt" path="res://pong/pong_ball.tscn" id="2_5t5j1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6tt3n"]
 size = Vector2(1152, 16)
@@ -31,15 +29,6 @@ offset_right = 1199.2999
 offset_bottom = 18.585083
 rotation = 1.5707964
 color = Color(0, 1, 0, 1)
-
-[node name="PaddleP1" parent="." unique_id=424773105 instance=ExtResource("1_6tt3n")]
-position = Vector2(0, 240)
-
-[node name="PaddleP2" parent="." unique_id=1322367629 instance=ExtResource("1_6tt3n")]
-position = Vector2(1120, 240)
-
-[node name="PongBall" parent="." unique_id=1085474213 instance=ExtResource("2_5t5j1")]
-position = Vector2(556, 300)
 
 [node name="TopBorderTriggerZone" type="Area2D" parent="." unique_id=65536575 groups=["pong_border"]]
 
