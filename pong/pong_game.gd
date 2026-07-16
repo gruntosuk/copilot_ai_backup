@@ -33,8 +33,8 @@ func _spawn_paddle_2() -> void:
 	print_debug(spawn_player_2)
 	if spawn_player_2 == true:
 		paddle_p2 = paddle_scene.instantiate()
+		paddle_p2.is_player_2 = true
 		add_child(paddle_p2)
-		GlobalEvents.set_player_2_paddle.emit()
 		print_debug("spawned paddle 2")
 
 

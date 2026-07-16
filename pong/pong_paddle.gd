@@ -16,12 +16,14 @@ func _ready() -> void:
 	paddle_size = $Paddle.size
 	GlobalEvents.pong_paddle_size.emit(paddle_size)
 
-	# If the spawn_player_2 bool in pong_game is true then setup the paddle for player 2.
-	GlobalEvents.set_player_2_paddle.connect(_player_2_paddle)
-
 	if is_player_2 == false:
-		position = paddle_spawn_p1 
+		position = paddle_spawn_p1
+		print("Paddle one ready")
 		GlobalEvents.paddle_ready_p1.emit()
+	else:
+		$Paddle.color = Color(0, 0, 255, 255)
+		position = paddle_spawn_p2
+		GlobalEvents.paddle_ready_p2.emit()
 
 
 func _process(delta: float) -> void:
@@ -35,11 +37,5 @@ func _process(delta: float) -> void:
 		position.y = clamp(position.y, min_y, max_y)
 
 
-func _player_2_paddle() -> void:
-	is_player_2 = true
-	$Paddle.color = Color(0, 0, 255, 255)
-	position = paddle_spawn_p2
-	GlobalEvents.paddle_ready_p2.emit()
-
-	# DISABLED(2026-07-16): Re-enable only if paddle Rect2 checks are added for collision debug output.
-	# Rect2($Paddle.position - paddle_size * 0.5)
+# DISABLED(2026-07-16): Replaced by is_player_2 flag set before add_child in pong_game._spawn_paddle_2().
+# func _player_2_paddle() -> void: ...
