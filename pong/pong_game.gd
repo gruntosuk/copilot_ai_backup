@@ -25,6 +25,7 @@ func _ready() -> void:
 	paddle_p1 = paddle_scene.instantiate()
 	add_child(paddle_p1)
 	spawn_player_2 = true
+	print_debug("spawned paddle 1")
 
 
 func _spawn_paddle_2() -> void:
@@ -32,15 +33,17 @@ func _spawn_paddle_2() -> void:
 		paddle_p2 = paddle_scene.instantiate()
 		add_child(paddle_p2)
 		GlobalEvents.set_player_2_paddle.emit()
+		print_debug("spawned paddle 2")
 
 
 func _spawn_ball() -> void:
 	ball = ball_scene.instantiate()
 	add_child(ball)
+	print_debug("spawn ball")
 
 
 func _game_ready() -> void:
-	print_debug("Game spaned and ready")
+	print_debug("Game ready")
 
 
 func _on_top_border_trigger_zone_area_entered(_area : Area2D) -> void:
