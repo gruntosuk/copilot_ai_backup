@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dlu312e1is38i"]
+
+[ext_resource type="Script" uid="uid://ssbxojh53yse" path="res://pong/pong_game.gd" id="1_5t5j1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tt3n"]
+size = Vector2(1152, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5t5j1"]
+size = Vector2(16, 640)
+
+[node name="PongGame" type="Node2D" unique_id=1669945265]
+script = ExtResource("1_5t5j1")
+
+[node name="TopBorder" type="ColorRect" parent="." unique_id=110202042 groups=["pong_border"]]
+offset_right = 1152.0
+offset_bottom = 16.0
+color = Color(0, 1, 0, 1)
+
+[node name="BottomBorder" type="ColorRect" parent="." unique_id=1277272994]
+offset_top = 624.0
+offset_right = 1152.0
+offset_bottom = 640.0
+color = Color(0, 1, 0, 1)
+
+[node name="BottomBorder2" type="ColorRect" parent="." unique_id=1295721053]
+offset_left = 578.0
+offset_top = 16.0
+offset_right = 1199.2999
+offset_bottom = 18.585083
+rotation = 1.5707964
+color = Color(0, 1, 0, 1)
+
+[node name="TopBorderTriggerZone" type="Area2D" parent="." unique_id=65536575 groups=["pong_border"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopBorderTriggerZone" unique_id=579087901]
+position = Vector2(576, 8)
+shape = SubResource("RectangleShape2D_6tt3n")
+
+[node name="BottomBorderTriggerZone" type="Area2D" parent="." unique_id=783083113 groups=["pong_border"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBorderTriggerZone" unique_id=1134454109]
+position = Vector2(576, 632)
+shape = SubResource("RectangleShape2D_6tt3n")
+
+[node name="RedScoreZone" type="Area2D" parent="." unique_id=1395893928 groups=["red_score_zone"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RedScoreZone" unique_id=991546958]
+position = Vector2(-9, 320)
+shape = SubResource("RectangleShape2D_5t5j1")
+
+[node name="BlueScoreZone" type="Area2D" parent="." unique_id=204677784 groups=["blue_score_zone"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlueScoreZone" unique_id=693815865]
+position = Vector2(1160, 320)
+shape = SubResource("RectangleShape2D_5t5j1")
+
+[node name="TopBorderBounds" type="StaticBody2D" parent="." unique_id=1159654242 groups=["pong_border"]]
+position = Vector2(576, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopBorderBounds" unique_id=440213420]
+shape = SubResource("RectangleShape2D_6tt3n")
+
+[node name="BottomBorderBounds" type="StaticBody2D" parent="." unique_id=1004309274 groups=["pong_border"]]
+position = Vector2(576, 632)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBorderBounds" unique_id=371269299]
+shape = SubResource("RectangleShape2D_6tt3n")
+
+[connection signal="area_entered" from="TopBorderTriggerZone" to="." method="_on_top_border_trigger_zone_area_entered"]
