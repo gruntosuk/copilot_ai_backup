@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cv7ejcge8hxxt"]
+
+[ext_resource type="Script" uid="uid://bd5r4afcrqntw" path="res://pong/pong_ball.gd" id="1_xgov3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7qw3"]
+size = Vector2(42, 42)
+
+[node name="PongBall" type="CharacterBody2D" unique_id=303599968]
+script = ExtResource("1_xgov3")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=207639588]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TriggerZone" type="CollisionShape2D" parent="." unique_id=1865217608]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_j7qw3")
