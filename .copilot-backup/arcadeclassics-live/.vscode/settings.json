@@ -1,9 +1,0 @@
-{
-    "godotTools.editorPath.godot4": "/Users/grantegglestone/Godot/Editors/.editor_config/Arcade Classics/Godot.app",
-    "editor.tabSize": 4,
-    "editor.insertSpaces": false,
-    "files.eol": "\n",
-    "files.exclude": {
-        "**/*.gd.uid": true
-    }
-}

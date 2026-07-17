@@ -2,27 +2,19 @@
 set -euo pipefail
 
 # Auto-backup script for copilot AI files
-# Syncs VS Code prompts and arcade workspace to copilot_ai_backup
+# Syncs ONLY VS Code prompt and AI customisation files to copilot_ai_backup
+# Do not mirror full project repositories here.
 
 REPO_DIR="/Users/grantegglestone/Repos/copilot_ai_backup"
 TARGET_BRANCH="main"
 PROMPTS_DIR="/Users/grantegglestone/Library/Application Support/Code/User/prompts"
 MIRROR_DIR="$REPO_DIR/.copilot-backup/prompts"
-ARCADE_DIR="/Users/grantegglestone/Repos/arcadeclassics"
-ARCADE_MIRROR_DIR="$REPO_DIR/.copilot-backup/arcadeclassics-live"
 
 cd "$REPO_DIR"
 
 # Mirror global prompt files into the backup repo
 mkdir -p "$MIRROR_DIR"
 rsync -a --delete "$PROMPTS_DIR/" "$MIRROR_DIR/"
-
-# Mirror arcade workspace for quick restore without touching git internals.
-mkdir -p "$ARCADE_MIRROR_DIR"
-rsync -a --delete \
-  --exclude='.git/' \
-  --exclude='.godot/' \
-  "$ARCADE_DIR/" "$ARCADE_MIRROR_DIR/"
 
 # Skip while merge conflicts exist
 if [[ -n "$(git diff --name-only --diff-filter=U)" ]]; then
