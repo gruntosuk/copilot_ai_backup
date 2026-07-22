@@ -20,3 +20,5 @@ applyTo: "**"
 - Preserve fixed external API names and engine property names in recommendations.
 - Use UK English spelling in prose and user-facing output where practical.
 - End with residual risks and any validation gaps if tests or runtime execution were not performed.
+- Change-minimisation rule: prefer recommendations that keep the user's current structure intact and require the smallest safe code delta.
+- Improved-code gate rule: before presenting rewritten or improved code samples, end with a yes/no prompt asking whether to show the improved version.

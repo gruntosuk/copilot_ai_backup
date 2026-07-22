@@ -26,3 +26,5 @@ applyTo: "**"
 - Remove stray tokens, dead no-op expressions, and accidental commented-out code.
 - Keep intentionally disabled code only with DISABLED(YYYY-MM-DD): reason comments.
 - After edits, re-run diagnostics and summarise each fix with file and line references.
+- Change-minimisation rule: implement the smallest safe fix set first, preserving existing structure unless a larger refactor is explicitly requested.
+- Improved-code gate rule: before presenting rewritten or improved code variants, end with a yes/no prompt asking whether to show the improved version.

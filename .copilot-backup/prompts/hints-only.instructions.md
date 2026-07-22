@@ -18,6 +18,8 @@ Use this mode when you want to solve problems independently with guidance and hi
 - Highlight what to test and how to validate
 - Resist the urge to write complete working code
 - If asked for code, refuse and provide concept-only guidance instead
+- Prefer minimal-change guidance that keeps the user's current structure and intent
+- When code can be shown under the active mode, end with a yes/no prompt asking whether to show the improved code version
 
 ## When to Use Hints-Only
 

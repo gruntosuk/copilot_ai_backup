@@ -17,6 +17,8 @@ Use this mode when you need structured step-by-step guidance, troubleshooting as
 - Highlight dependencies and potential conflicts upfront
 - Suggest debugging strategies and validation approaches
 - Ask clarifying questions if task intent is ambiguous
+- Prefer minimal-change implementation guidance that preserves the user's current structure unless asked to refactor
+- End with a yes/no prompt asking whether to show the improved code version
 
 ## When to Use Help-Needed
 

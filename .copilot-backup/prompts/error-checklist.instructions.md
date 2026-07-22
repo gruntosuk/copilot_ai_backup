@@ -18,3 +18,5 @@ applyTo: "**"
 - Ensure array, dictionary, and similar collection members use capitals for their names or keys where they are defined as identifiers.
 - Ensure explanatory comments and disabled code are clearly distinguished: use prose comments for explanation, and only keep disabled code with a DISABLED(YYYY-MM-DD): reason prefix.
 - Ensure there is no bare commented-out code without an explicit DISABLED(...) reason.
+- Change-minimisation rule: prefer the smallest safe edit set that preserves the user's existing structure and behaviour.
+- Improved-code gate rule: before presenting rewritten or improved code, end with a yes/no prompt asking whether to show the improved version.
