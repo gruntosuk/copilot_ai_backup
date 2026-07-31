@@ -11,6 +11,7 @@ applyTo: "**"
 - Always run a full diagnostics pass first, then fix issues by severity.
 - Prioritise parser errors, load blockers, signal mismatches, and runtime node-path issues.
 - Preserve fixed external API names and engine property names.
+- Enforce function naming for font-related helpers: use a leading underscore only for local/private helper functions; do not use a leading underscore for functions called externally. Keep engine callback names unchanged where required by Godot.
 - Prefer consistency with existing project conventions unless the user asks otherwise.
 - Use UK English spelling in prose, comments, and user-facing strings where practical.
 - Ensure location and position names are correct and consistent.

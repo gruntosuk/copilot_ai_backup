@@ -18,6 +18,7 @@ applyTo: "**"
 - Distinguish explanatory comments from disabled code.
 - Flag bare commented-out code that lacks a DISABLED(YYYY-MM-DD): reason prefix.
 - Preserve fixed external API names and engine property names in recommendations.
+- Enforce function naming for font-related helpers: use a leading underscore only for local/private helper functions; do not use a leading underscore for functions called externally. Keep engine callback names unchanged where required by Godot.
 - Use UK English spelling in prose and user-facing output where practical.
 - End with residual risks and any validation gaps if tests or runtime execution were not performed.
 - Change-minimisation rule: prefer recommendations that keep the user's current structure intact and require the smallest safe code delta.
