@@ -1,13 +1,13 @@
 #!/bin/zsh
 set -euo pipefail
 
-# Auto-backup script for copilot AI files
+# Auto-backup script for AI prompt/agent files
 # VS Code's User/prompts and User/agents folders are symlinked directly into
-# .copilot-backup/ in this repo, so this repo IS the canonical copy - no
+# .ai-backup/ in this repo, so this repo IS the canonical copy - no
 # rsync mirroring needed, this just commits and pushes whatever changed.
 # Do not mirror full project repositories here.
 
-REPO_DIR="/Users/grantegglestone/Repos/copilot_ai_backup"
+REPO_DIR="/Users/grantegglestone/Repos/ai_backup"
 TARGET_BRANCH="main"
 
 cd "$REPO_DIR"
@@ -32,6 +32,6 @@ fi
 commit_msg="auto-backup: $(date '+%Y-%m-%d %H:%M:%S')"
 git commit -m "$commit_msg"
 
-# Push to origin (copilot_ai_backup)
+# Push to origin (ai_backup)
 GIT_TERMINAL_PROMPT=0 git fetch origin "$TARGET_BRANCH" >/dev/null 2>&1 || true
 GIT_TERMINAL_PROMPT=0 git push --force-with-lease origin HEAD:"$TARGET_BRANCH"
