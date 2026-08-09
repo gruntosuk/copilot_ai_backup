@@ -2,19 +2,15 @@
 set -euo pipefail
 
 # Auto-backup script for copilot AI files
-# Syncs ONLY VS Code prompt and AI customisation files to copilot_ai_backup
+# VS Code's User/prompts and User/agents folders are symlinked directly into
+# .copilot-backup/ in this repo, so this repo IS the canonical copy - no
+# rsync mirroring needed, this just commits and pushes whatever changed.
 # Do not mirror full project repositories here.
 
 REPO_DIR="/Users/grantegglestone/Repos/copilot_ai_backup"
 TARGET_BRANCH="main"
-PROMPTS_DIR="/Users/grantegglestone/Library/Application Support/Code/User/prompts"
-MIRROR_DIR="$REPO_DIR/.copilot-backup/prompts"
 
 cd "$REPO_DIR"
-
-# Mirror global prompt files into the backup repo
-mkdir -p "$MIRROR_DIR"
-rsync -a --delete "$PROMPTS_DIR/" "$MIRROR_DIR/"
 
 # Skip while merge conflicts exist
 if [[ -n "$(git diff --name-only --diff-filter=U)" ]]; then
