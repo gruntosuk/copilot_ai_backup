@@ -15,10 +15,10 @@ applyTo: "**"
 - Prefer consistency with existing project conventions unless the user asks otherwise.
 - Use UK English spelling in prose, comments, and user-facing strings where practical.
 - Ensure location and position names are correct and consistent.
-- Use location for grid or logical coordinates and position for world or transform values.
-- Ensure parent components perform conversions before passing values to children.
-- Use GlobalGameState conversion helpers for world-grid conversions instead of inline maths.
-- Ensure variable declarations use explicit type annotations and explicit defaults where practical.
+- Use location for grid/cell/logical coordinates (for example, grid_location, start_location, end_location) and position for transform/screen/world position values tied to engine properties (for example, global_position, position, mouse position values before conversion).
+- Ensure parent components perform conversions before passing values to children or emitting them to downstream listeners.
+- Use GlobalGameState conversion helpers (calculate_grid_location_from_world and calculate_world_location_from_grid) for world-grid conversions instead of inline maths.
+- Ensure variable declarations use explicit typed suffixes and spaced annotations with explicit defaults where practical (for example, var player : bool = false). Do not use := shorthand for local declarations when an explicit type can be written.
 - Ensure enum and array names use PascalCase where those are defined as identifiers.
 - Ensure array and dictionary identifier members use capitalised names or keys where required by project convention.
 - Fix GDScript constant casing mistakes, for example .VECTOR2.ZERO to Vector2.ZERO.

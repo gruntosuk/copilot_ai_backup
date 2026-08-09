@@ -18,6 +18,15 @@ applyTo: "**"
 - Distinguish explanatory comments from disabled code.
 - Flag bare commented-out code that lacks a DISABLED(YYYY-MM-DD): reason prefix.
 - Preserve fixed external API names and engine property names in recommendations.
+- Prefer consistency with existing project conventions unless requested otherwise.
+- Ensure location/position variable names are correct and consistent.
+- Use location for grid/cell/logical coordinates (for example, grid_location, start_location, end_location).
+- Use position for transform/screen/world position values tied to engine properties (for example, global_position, position, mouse position values before conversion).
+- Ensure variable conversions are done in the parent before values are passed to child components or emitted to downstream listeners.
+- Ensure all world-to-grid and grid-to-world coordinate conversions use GlobalGameState helper functions (calculate_grid_location_from_world and calculate_world_location_from_grid) rather than inline maths.
+- Ensure variable declarations include explicit typed suffixes and spaced annotations with explicit defaults where applicable (for example, var player : bool = false). Do not use := shorthand for local declarations when an explicit type can be written.
+- Ensure enum and array names use PascalCase (for example, CapitalsLikeThis or PlayerBoolWalking).
+- Ensure array, dictionary, and similar collection members use capitals for their names or keys where they are defined as identifiers.
 - Enforce function naming for font-related helpers: use a leading underscore only for local/private helper functions; do not use a leading underscore for functions called externally. Keep engine callback names unchanged where required by Godot.
 - Use UK English spelling in prose and user-facing output where practical.
 - End with residual risks and any validation gaps if tests or runtime execution were not performed.
